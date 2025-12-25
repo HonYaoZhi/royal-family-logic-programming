@@ -54,3 +54,34 @@ husband(Man, Woman) :- wife(Woman, Man).
 % Rule 2: person (either a male or a female)
 person(P) :- male(P).
 person(P) :- female(P).
+
+% Rule 3: mother
+mother(Mother,Child):-
+    female(Mother),
+    parent(Mother,Child).
+
+% Rule 4: father
+father(Father, Child) :-
+    male(Father),
+    parent(Father, Child).
+
+% Rule 5: sibling
+sibling(Sibling1,Sibling2,Parent):-
+    parent(Parent,Sibling1),
+    parent(Parent,Sibling2),
+    Sibling1 \= Sibling2.
+
+% Rule 6: brother
+brother(Brother,Person):-
+    male(Brother),
+    parent(P,Brother),
+    parent(P,Person),
+    Brother \= Person.
+
+% Rule 7: ancestor
+ancestor(Predecessor, Successor) :-
+    parent(Predecessor, Successor).
+
+ancestor(Predecessor, Successor) :-
+    parent(Predecessor, X),
+    ancestor(X, Successor).
