@@ -85,3 +85,21 @@ ancestor(Predecessor, Successor) :-
 ancestor(Predecessor, Successor) :-
     parent(Predecessor, X),
     ancestor(X, Successor).
+
+% Section 3: Extended Database for Student ID 22004845
+% New children facts (last digit 5 is odd -> children of edward and sophie)
+
+% Directives to suppress warnings about non-contiguous clauses
+:- discontiguous male/1.
+:- discontiguous female/1.
+:- discontiguous parent/2.
+
+% Gender facts for new children
+male(x_22004845).
+female(y_22004845).
+
+% Parent facts for new children
+parent(edward, x_22004845).
+parent(edward, y_22004845).
+parent(sophie, x_22004845).
+parent(sophie, y_22004845).
