@@ -74,9 +74,7 @@ sibling(Sibling1,Sibling2,Parent):-
 % Rule 6: brother
 brother(Brother,Person):-
     male(Brother),
-    parent(P,Brother),
-    parent(P,Person),
-    Brother \= Person.
+    sibling(Brother, Person, _).
 
 % Rule 7: ancestor
 ancestor(Predecessor, Successor) :-
